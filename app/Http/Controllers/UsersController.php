@@ -1,0 +1,91 @@
+<?php
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class  UsersController extends Controller
+{
+    
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $users = new User;
+        $users->name = $request->name;
+        $users->Email = $request->Email;
+        $users->password = $request->password;
+        $users->image = $request->image;
+        $users->save();
+        $data =[
+            "mesaje" => "usuario creada",
+            "usuario" => $users
+        ];
+        return response->json($data);  
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(User $users)
+    {
+        return response->json($users);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(User $users)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, User $sers)
+    {
+        $users->name = $request->name;
+        $users->Email = $request->Email;
+        $users->password = $request->password;
+        $users->image = $request->image;
+        $users->save();
+        $data =[
+            "mesaje" => "usuario creada",
+            "usuario" => $users
+        ];
+        return response->json($data);  
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(User $users)
+    {
+        $users->delete();
+        $data =[
+            "mesaje" => "usuario eliminada",
+            "usuario" => $users
+        ];
+        return response()->json($data);
+    }
+}
