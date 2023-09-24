@@ -39,7 +39,7 @@ class  UsersController extends Controller
             "mesaje" => "usuario creada",
             "usuario" => $users
         ];
-        return response->json($data);  
+        return response()->json($data);  
     }
 
     /**
@@ -47,7 +47,7 @@ class  UsersController extends Controller
      */
     public function show(User $users)
     {
-        return response->json($users);
+        return response()->json($users);
 
     }
 
@@ -73,7 +73,7 @@ class  UsersController extends Controller
             "mesaje" => "usuario creada",
             "usuario" => $users
         ];
-        return response->json($data);  
+        return response()->json($data);  
     }
 
     /**

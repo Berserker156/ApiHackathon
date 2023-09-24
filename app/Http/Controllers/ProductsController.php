@@ -13,7 +13,8 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Products::all();
-        return response()->json($products);    }
+        return response()->json($products);  
+      }
 
     /**
      * Show the form for creating a new resource.
@@ -33,12 +34,12 @@ class ProductsController extends Controller
         $products->Price = $request->Price;
         $products->description = $request->description;
         $products->Stock = $request->Stock;
-        $products = save();
+        $products->save();
         $data =[
             "mesaje" => "producto creado",
             "products" => $products
         ];
-        return response->json($data);    
+        return response()->json($data);    
     }
 
     /**
@@ -46,7 +47,7 @@ class ProductsController extends Controller
      */
     public function show(Products $products)
     {
-        return response->json($products);
+        return response()->json($products);
     }
 
     /**
@@ -66,12 +67,12 @@ class ProductsController extends Controller
         $products->Price = $request->Price;
         $products->description = $request->description;
         $products->Stock = $request->Stock;
-        $products = save();
+        $products->save();
         $data =[
             "mesaje" => "producto creado",
             "products" => $products
         ];
-        return response->json($data); 
+        return response()->json($data); 
     }
 
     /**
